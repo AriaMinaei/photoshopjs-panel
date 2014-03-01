@@ -1,0 +1,180 @@
+@function row($n: 1)
+
+	@return $n * 22px
+
+
+body
+	margin: 0
+	line-height: row()
+
+
+*
+	margin: 0
+	padding: 0
+
+
+.hidden
+	display: none
+
+
+section
+	display: block
+	position: relative
+	padding: 10px 4px 10px 8px
+	width: 100%
+
+	-webkit-box-sizing: border-box
+
+	overflow: hidden
+
+	> .title
+		margin-bottom: 4px
+
+
+
+@mixin el
+	position: relative
+	display: inline-block
+	-webkit-box-sizing: border-box
+
+	height: row()
+	width: 70px
+
+	margin-right: 5px
+	margin-bottom: 8px
+
+	vertical-align: top
+
+	&.big
+		width: 140px
+
+
+
+label, input, textarea, select, .select, button, a.button, .el
+	@include el
+
+
+input[type=checkbox], input[type=radio]
+	top: 4px
+	left: -3px
+
+
+input[type=text], textarea
+	padding-left: 4px
+	padding-right: 4px
+
+
+textarea
+	width: 216px
+	height: row()*3
+
+	padding-top: 4px
+
+
+
+button, a.button, input[type=submit]
+	padding: 4px 8px
+	width: auto
+	height: 26px
+
+
+a.button
+	padding-top: 1px
+
+
+.select
+	> a
+		position: relative
+		display: block
+
+		-webkit-box-sizing: border-box
+		padding: 0 17px 0 7px
+
+		height: row()+3px !important
+		width: 100%
+
+		overflow: hidden
+
+
+
+
+	// margin-right: 26px
+
+	> .root
+		display: none
+		position: absolute
+		top: 22px
+
+		width: 100%
+		min-width: 100px
+		padding: 1px
+		z-index: 10
+		overflow-y: auto
+		height: auto !important
+		max-height: row()*4 !important
+
+		&.expanded
+			display: block
+
+
+		> li
+			padding: 2px 6px 2px 4px
+
+
+
+	&+*
+		margin-left: -20px
+
+
+
+label
+	margin-bottom: 0
+	padding-left: 2px
+
+	> .help
+		position: absolute
+		right: 0
+		top: -2px
+		margin-right: 7px
+
+
+
+.help
+	@include el
+
+	width: 10px
+	height: row()
+
+	margin-left: -7px
+	position: relative
+	margin-right: 2px
+
+
+.help-content
+	position: absolute
+	padding: 6px 12px
+	left: 4px
+	right: 4px
+
+	> pre
+		padding-left: 12px
+		// white-space: pre-wrap
+		font-family: monospace
+
+		margin-bottom: 8px
+
+		display: inline
+
+		&.example
+			padding: 0 4px
+			margin: 0
+
+
+
+
+div > hr, section > hr
+	margin-bottom: 10px
+
+
+code
+	display: inline-block

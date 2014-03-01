@@ -1,0 +1,303 @@
+//Color references
+
+//The darkest theme
+$dark1: false
+
+//The middle dark theme
+$dark2: false
+
+//The middle light theme
+$light1: false
+
+//The lightest theme
+$light2: false
+
+//Default theme
+$theme: ''
+
+@function color_panel_bg()
+
+	@if $dark1 == true
+
+		@return #343434
+
+	@else if $dark2 == true
+
+		@return #535353
+
+	@else if $light1 == true
+
+		@return #b8b8b8
+
+	@else if $light2 == true
+
+		@return #d6d6d6
+
+
+@function color_text()
+
+	@if $dark1 == true
+
+		@return #cacaca
+
+	@else if $dark2 == true
+
+		@return #ffffff
+
+	@else if $light1 == true
+
+		@return #000000
+
+	@else if $light2 == true
+
+		@return #000000
+
+@function color_text_invert()
+
+	@if $dark1 == true
+
+		@return black
+
+	@else if $dark2 == true
+
+		@return black
+
+	@else if $light1 == true
+
+		@return white
+
+	@else if $light2 == true
+
+		@return white
+
+@function color_text_shadow()
+
+	@if $dark1 == true
+
+		@return none
+
+	@else if $dark2 == true
+
+		@return none
+
+	@else if $light1 == true
+
+		@return unquote("0 1px 0.5px #dfdfdf")
+
+	@else if $light2 == true
+
+		@return none
+
+@function color_select()
+
+	@if $dark1 == true
+
+		@return black
+
+	@else if $dark2 == true
+
+		@return black
+
+	@else if $light1 == true
+
+		@return black
+
+	@else if $light2 == true
+
+		@return black
+
+@mixin btn_normal
+
+	text-decoration: none
+
+	border: 1px solid #323232
+
+	-webkit-box-shadow: none !important
+
+	-webkit-border-radius: 3px !important
+
+	cursor: default
+
+	@include colors
+
+		@if $dark1 == true
+
+			border-color: #242424
+
+			-webkit-box-shadow: 0 1px 0 #464646, inset 0 1px 0 #464646
+
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #505050), color-stop(1, #404040))
+
+		@else if $dark2 == true
+
+			border-color: #2a2a2a
+
+			-webkit-box-shadow: 0 1px 0 #6a6a6a, inset 0 1px 0 #919191
+
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #666), color-stop(1, #555))
+
+			color: #EEE
+
+		@else if $light1 == true
+
+			border-color: #5e5e5e
+
+			-webkit-box-shadow: 0 1px 0 #c7c7c7, inset 0 1px 0 #f7f7f7
+
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e7e7e7), color-stop(1, #bdbdbd))
+
+		@else if $light2 == true
+
+			border-color: #888888
+
+			-webkit-box-shadow: 0 1px 0 #f7f7f7, inset 0 1px 0 #ffffff
+
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e7e7e7), color-stop(1, #bdbdbd))
+
+@mixin btn_hover
+
+	@include colors
+
+		@if $dark1 == true
+
+			border-color: #242424
+
+			-webkit-box-shadow: 0 1px 0 #464646, inset 0 1px 0 #464646
+
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0, lighten(#505050, 10%)), color-stop(1, lighten(#404040, 1%)))
+
+			color: color_text_invert()
+
+		@else if $dark2 == true
+
+			border-color: #2a2a2a
+
+			-webkit-box-shadow: 0 1px 0 #6a6a6a, inset 0 1px 0 #919191
+
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0, lighten(#767676, 10%)), color-stop(1, lighten(#636363, 1%)))
+
+			color: #111
+
+		@else if $light1 == true
+
+			border-color: #5e5e5e
+
+			-webkit-box-shadow: 0 1px 0 #c7c7c7, inset 0 1px 0 #f7f7f7
+
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0, lighten(#e7e7e7, 10%)), color-stop(1, lighten(#bdbdbd, 1%)))
+
+		@else if $light2 == true
+
+			border-color: #888888
+
+			-webkit-box-shadow: 0 1px 0 #f7f7f7, inset 0 1px 0 #ffffff
+
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0, lighten(#e7e7e7, 10%)), color-stop(1, lighten(#bdbdbd, 1%)))
+
+@mixin btn_active
+
+	@include colors
+
+		@if $dark1 == true
+
+			border-color: #242424
+
+			-webkit-box-shadow: 0 1px 0 #464646, inset 0 1px 0 #464646
+
+			background: #333
+
+			color: color_text_invert()
+
+		@else if $dark2 == true
+
+			border-color: #2a2a2a
+
+			-webkit-box-shadow: 0 1px 0 #6a6a6a, inset 0 1px 0 #919191
+
+			background: #444
+
+		@else if $light1 == true
+
+			border-color: #5e5e5e
+
+			-webkit-box-shadow: 0 1px 0 #c7c7c7, inset 0 1px 0 #f7f7f7
+
+			background: #BBB
+
+		@else if $light2 == true
+
+			border-color: #888888
+
+			-webkit-box-shadow: 0 1px 0 #f7f7f7, inset 0 1px 0 #ffffff
+
+			background: #BBB
+
+@mixin btn
+
+	@include btn_normal
+
+	&:hover
+
+		@include btn_hover
+
+	&:active
+
+		@include btn_active
+
+@mixin colors
+
+	$dark1: true
+
+	$dark2: false
+
+	$light1: false
+
+	$light2: false
+
+	$theme: dark1
+
+	.dark1 &
+
+		@content
+
+
+
+
+
+	$dark1: false
+
+	$dark2: true
+
+	$theme: dark2
+
+	.dark2 &
+
+		@content
+
+
+
+
+
+	$dark2: false
+
+	$light1: true
+
+	$theme: light1
+
+	.light1 &
+
+		@content
+
+
+
+
+
+	$light1: false
+
+	$light2: true
+
+	$theme: light2
+
+	.light2 &
+
+		@content
