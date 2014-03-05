@@ -1,12 +1,16 @@
 ThemeHandler = require './ThemeHandler'
+Direction = require './widgets/Direction'
 console = require './console'
+Form = require './widgets/Form'
 require './polyfills'
+
+window.console = console
 
 module.exports = class Panel
 
 	@console: console
 
-	constructor: (@panelName) ->
+	constructor: (@panelName, @rootNode = document.body) ->
 
 		@console = console
 
@@ -22,6 +26,16 @@ module.exports = class Panel
 
 			@themeHandler = new ThemeHandler @
 
+			Direction.applyTo @rootNode
+
+			Form.applyTo @rootNode
+
 		catch error
 
-			console.error error
+			if @console.native
+
+				throw error
+
+			else
+
+				console.error error

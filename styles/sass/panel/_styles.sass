@@ -1,73 +1,64 @@
-@import "styles/colors"
-
-body
-	@include colors
-		background-color: color_panel_bg()
-		color: color_text()
-		text-shadow: color_text_shadow()
-
-	-webkit-user-select: none
-	cursor: default
-	font-family: Helvetica, Tahoma, sans-serif
-	font-size: 13px
-
-
 input, select, textarea, button, a
+
 	@include colors
+
 		color: color_text()
-
-
 
 input[type=text], textarea
+
 	outline: none
+
 	font-size: 12px
+
 	font-family: Monaco, "Courier New", monospace
 
+	border: 1px solid
+
 	@include colors
-		border: 1px solid
+
 		@if $dark1 == true
+
 			background: #212121
 			border-color: #111111
 			-webkit-box-shadow: 0 1px 0 #464646, inset 0 1px 0 #1e1e1e
+
 		@else if $dark2 == true
+
 			background: #3a3a3a
 			border-color: #2a2a2a
 			-webkit-box-shadow: 0 1px 0 #696969, inset 0 1px 0 #373737
+
 		@else if $light1 == true
+
 			background: #eeeeee
 			border-color: #5e5e5e
 			-webkit-box-shadow: 0 1px 0 #c6c6c6, inset 0 1px 0 #cfcfcf
+
 		@else if $light2 == true
+
 			background: #ffffff
 			border-color: #888888
 			-webkit-box-shadow: 0 1px 0 #e8e8e8, inset 0 1px 0 #d9d9d9
 
-
 		&:focus
-			@if $dark1 == true
-				// background: darken(#212121, 10%)
 
-				// border-color: transparent
-				// background: #FFF
-				// outline: 1px solid #161616
-				// outline: 2px solid #656565
-				// // border-color: #161616
-			@else if $dark2 == true
-				// border-color: #FFF
-				// background: #000000
-			@else if $light1 == true
-				// border-color: #5e5e5e
-				// background: #5e5e5e
-			@else if $light2 == true
-				// border-color: #888888
-				// background: #888888
+			background: white
 
-input[type=text]
-	&:focus
-		-webkit-box-shadow: none !important
-		-webkit-transform: scale(1.05)
-		-webkit-transform-origin: left
+			color: black
 
+			border-color: rgb(0, 189, 255)
+
+			-webkit-box-shadow: 0 0 4px -1px black !important
+
+			// @if $dark1 == true
+
+			// @if $dark2 == true
+
+			// @if $light1 == true
+
+			@if $light2 == true
+
+				-webkit-box-shadow: 0 0 4px -1px rgb(0, 199, 255) !important
 
 
 button, input[type=submit], a.button
@@ -234,6 +225,7 @@ input[type=checkbox]
 
 
 	@include colors
+
 		&:after
 			background: url("../../img/#$theme/checkbox/n.png") 0 0
 

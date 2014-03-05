@@ -8,39 +8,61 @@ if window.console?
 
 module.exports = console =
 
-	inspectLimit: 6
+	inspectLimit: 100
 
 	native: no
 
-	_inspectSingle: (given, limit = console.inspectLimit, covered = []) ->
+	_inspectSingle: (given, persist = {limit: console.inspectLimit, covered: []}) ->
 
 		r = ''
 
-		limit--
+		if given is null
 
-		if limit <= 0
+			return 'null'
 
-			return (typeof given) + '-Limit!'
+		if typeof given in ['object', 'function']
 
-		if typeof given is 'object'
-
-			if given in covered
+			if given in persist.covered
 
 				return '[Recursive]'
 
 			else
 
-				covered.push given
+				persist.covered.push given
 
 			items = []
 
 			iterator = (v, k) ->
 
-				k = "'" + k + "' -> "
+				persist.limit--
 
-				items.push k + console._inspectSingle(v, limit, covered)
+				return if persist.limit <= 0
 
-			if given instanceof Array
+				k = k + " -> "
+
+				try items.push k + console._inspectSingle(v, persist)
+
+			if given instanceof Element
+
+				type = "<#{given.tagName}>"
+
+				subs = {}
+
+				for prop in ['id', 'className', 'action']
+
+					if given[prop]? and given[prop].length > 0
+
+						subs[prop] = given[prop]
+
+				if given.childElementCount > 0
+
+					subs.children = given.children
+
+				for name, val of subs
+
+					iterator val, name
+
+			else if given instanceof Array
 
 				type = 'array'
 
@@ -48,19 +70,49 @@ module.exports = console =
 
 			else
 
-				type = 'object'
+				if typeof given is 'function'
 
-				iterator(v, k) for k, v of given
+					type = '#Function'
 
-			r = prependToEachLine ("\n" + items.join(", \n")), '     '
+				else
 
-		else if typeof given is 'function'
+					type = '#Object'
 
-			r = 'function'
+					if given.constructor?.name?
+
+						name = given.constructor.name
+
+						if name isnt 'Object'
+
+							type = '#' + name
+
+				for k of given
+
+					continue if k in ['prototype', 'parent']
+
+					try
+
+						v = given[k]
+
+						iterator(v, k)
+
+			r = prependToEachLine ("\n" + items.join(", \n")), '   '
 
 		else if given is undefined
 
-			r = 'undefined'
+			return 'undefined'
+
+		else if typeof given is 'string'
+
+			if given.length > 200
+
+				given = given.substr 0, 200
+
+			return '"' + given + '"'
+
+		else if typeof given in ['boolean', 'number']
+
+			return String given
 
 		else
 
@@ -70,8 +122,7 @@ module.exports = console =
 
 			type = typeof given
 
-		'[' + type + '] -> ' + r
-
+		type + ' -> ' + r
 
 	_inspect: ->
 
@@ -93,17 +144,7 @@ module.exports = console =
 
 	error: (e) ->
 
-		if typeof e is 'string'
-
-			alert "Error: " + e
-
-			throw e
-
-		alert("Error: " + e.message + "\n"
-			+ "@" + e.sourceURL + ":" + e.line
-			)
-
-		throw e
+		console.log 'Error', e
 
 	notice: ->
 

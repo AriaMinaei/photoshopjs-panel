@@ -1,0 +1,67 @@
+.panel-input-direction
+
+	@include el
+
+	width: 24px
+	height: 24px
+	top: -1px
+
+	position: relative
+
+	-webkit-border-radius: 11px
+
+	border: 2px solid #2e2e2e
+
+	cursor: pointer
+
+	&:after
+
+		display: block
+		content: "\0020"
+
+		position: absolute
+
+		width: 7px
+		height: 12px
+
+		top: 4px
+		left: 7px
+
+		opacity: 0.67
+
+	@include colors
+
+		&:after
+
+			background: url("../../images/#{$theme}/direction.png") 0 0 no-repeat
+
+	&:hover
+
+		border-color: rgb(3, 3, 3)
+
+		&:after
+
+			opacity: 1
+
+	&:active
+
+		background: #222
+
+	&.right:after
+
+		-webkit-transform: rotateZ(0deg) translateZ(1px)
+
+	&.down:after
+
+		-webkit-transform: rotateZ(90deg) translateZ(1px)
+
+	&.left:after
+
+		-webkit-transform: rotateZ(180deg) translateZ(1px)
+		left: 6px
+
+	&.up:after
+
+		-webkit-transform: rotateZ(270deg) translateZ(1px)
+		left: 6px
+
