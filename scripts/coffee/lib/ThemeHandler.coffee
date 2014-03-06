@@ -6,23 +6,35 @@ module.exports = class ThemeHandler
 
 		@current = 'light1'
 
-		window.addEventListener 'ThemeChangedEvent', @_themeChangeListener
-
 		@_changeTheme 'dark1', 'Tahoma', '10'
 
-	_themeChangeListener: (e) =>
+		@panel.csi.addEventListener @panel.csi.constructor.THEME_COLOR_CHANGED_EVENT, @_themeChangeListener
 
-		theme = switch e.appSkinInfo.panelBackgroundColor
+		do @_themeChangeListener
 
-			when 'b8b8b8' then 'light1'
+	_themeChangeListener: =>
 
-			when 'd6d6d6' then 'light2'
+		skin = @panel.csi.hostEnvironment.appSkinInfo
 
-			when '343434' then 'dark1'
+		color = skin.panelBackgroundColor.color
 
-			else 'dark2'
+		theme = if color.red > 200
 
-		@_changeTheme theme, e.appSkinInfo.baseFontFamily, e.appSkinInfo.baseFontSize
+			'light2'
+
+		else if color.red > 120
+
+			'light1'
+
+		else if color.red > 75
+
+			'dark2'
+
+		else
+
+			'dark1'
+
+		@_changeTheme theme, skin.baseFontFamily, skin.baseFontSize
 
 	_changeTheme: (theme, fontFamily, fontSize) ->
 
