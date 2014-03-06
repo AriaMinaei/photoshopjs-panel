@@ -14,10 +14,8 @@
 
 	cursor: pointer
 
-	&:after
+	> .thingy
 
-		display: block
-		content: "\0020"
 
 		position: absolute
 
@@ -29,11 +27,9 @@
 
 		opacity: 0.67
 
-		-webkit-transition: -webkit-transform 0.9s
+		-webkit-transition: all 0.21s
 
-	@include colors
-
-		&:after
+		@include colors
 
 			background: url("../../images/#{$theme}/direction.png") 0 0 no-repeat
 
@@ -41,7 +37,7 @@
 
 		border-color: rgb(3, 3, 3)
 
-		&:after
+		> .thingy
 
 			opacity: 1
 
@@ -49,21 +45,34 @@
 
 		background: #222
 
-	&.right:after
+	&.right > .thingy
 
 		-webkit-transform: rotateZ(0deg) translateZ(1px)
 
-	&.down:after
+	&.right:hover > .thingy
+
+		-webkit-transform: rotateZ(20deg) translateZ(1px)
+
+	&.down > .thingy
 
 		-webkit-transform: rotateZ(90deg) translateZ(1px)
 
-	&.left:after
+	&.down:hover > .thingy
+
+		-webkit-transform: rotateZ(110deg) translateZ(1px)
+
+	&.left > .thingy
 
 		-webkit-transform: rotateZ(180deg) translateZ(1px)
-		left: 6px
 
-	&.up:after
+	&.left:hover > .thingy
+
+		-webkit-transform: rotateZ(200deg) translateZ(1px)
+
+	&.up > .thingy
 
 		-webkit-transform: rotateZ(270deg) translateZ(1px)
-		left: 6px
 
+	&.up:hover > .thingy
+
+		-webkit-transform: rotateZ(290deg) translateZ(1px)

@@ -13,6 +13,6 @@ module.exports = class Panel
 
 		@themeHandler = new ThemeHandler @
 
-		Direction.applyTo @rootNode
+		Direction.applyTo @rootNode, @
 
-		Form.applyTo @rootNode
+		Form.applyTo @rootNode, @

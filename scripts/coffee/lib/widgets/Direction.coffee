@@ -26,6 +26,11 @@ module.exports = class Direction
 
 		@node.classList.add 'panel-input-direction'
 
+		thingy = document.createElement 'div'
+		thingy.classList.add 'thingy'
+
+		@node.appendChild thingy
+
 		@input = document.createElement 'input'
 		@input.type = 'hidden'
 		@input.name = @name
