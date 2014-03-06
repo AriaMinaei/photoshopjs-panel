@@ -1,30 +1,24 @@
-console = require '../console'
-
-module.exports = class Direction
+module.exports = class Rotator
 
 	constructor: (@node) ->
 
-		@name = @node.getAttribute('data-name') or 'direction'
+		console.log @node
+
+		@name = @node.getAttribute('data-name')
 
 		options = @node.getAttribute 'data-options'
 
-		if options? and options.trim() isnt ''
+		unless options? and options.trim() isnt ''
 
-			@options = []
+			throw Error "Rotator isn't supplied with data-options"
 
-			for o in options.split(/\s*,\s*/)
+		@options = []
 
-				unless o in ['right', 'down', 'left', 'up']
+		for o in options.split(/\s*,\s*/)
 
-					throw Error "Option '#{o}' isn't supported for direction. Supported options: ['right', 'down', 'left', 'up']"
+			@options.push o
 
-				@options.push o
-
-		else
-
-			@options = ['right', 'down', 'left', 'up']
-
-		@node.classList.add 'panel-input-direction'
+		@node.classList.add 'panel-input-rotator'
 
 		thingy = document.createElement 'div'
 		thingy.classList.add 'thingy'
@@ -69,10 +63,10 @@ module.exports = class Direction
 
 	@applyTo: (root) ->
 
-		nodes = root.querySelectorAll '[data-type="direction"]'
+		nodes = root.querySelectorAll '[data-type="rotator"]'
 
 		for node in nodes
 
-			new Direction node
+			new Rotator node
 
 		return

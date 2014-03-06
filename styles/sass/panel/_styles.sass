@@ -4,11 +4,15 @@ input, select, textarea, button, a
 
 		color: color_text()
 
+button
+
+	font-size: inherit
+
 input[type=text], textarea
 
 	outline: none
 
-	font-size: 12px
+	font-size: inherit
 
 	font-family: Monaco, "Courier New", monospace
 
@@ -72,137 +76,6 @@ input[type=text], textarea, select, button, a.button
 select
 	color: color_select() !important
 
-hr
-	height: 1px
-	margin-bottom: -2px
-	margin-top: 0
-	margin-right: 5px
-
-	border: none
-	border-bottom: 1px solid
-
-	@include colors
-		@if $dark1 == true
-			background-color: #262626
-			border-bottom-color: #484848
-		@else if $dark2 == true
-			background-color: #383838
-			border-bottom-color: #717171
-		@else if $light1 == true
-			background-color: #808080
-			border-bottom-color: #cacaca
-		@else if $light2 == true
-			background-color: #9e9e9e
-			border-bottom-color: #f0f0f0
-
-
-
-
-
-
-.help
-	display: none
-
-	&.done
-		display: inline-block
-
-
-	&:hover, &:active
-		opacity: 1
-
-
-	// background: lighten(color_panel_bg(), 1%)
-	opacity: 0.5
-	&:before
-		display: block
-		content: "?"
-		position: absolute
-		top: 2px
-		left: 6px
-		font-family: Arial
-		font-weight: bold
-		font-size: 15px
-		color: #666
-		width: row()
-		height: row()
-
-		@include colors
-			@if $dark1 == true
-				color: #666
-			@else if $dark2 == true
-				color: #888
-			@else if $light1 == true
-				color: #6a6a6a
-			@else if $light2 == true
-				color: #999
-
-
-
-
-
-.help-content
-	background: #222
-	-webkit-border-radius: 3px
-	z-index: 10
-	font-family: Helvetica, sans-serif
-	font-size: 13px
-
-	text-shadow: none !important
-	-webkit-box-shadow: 0 6px 10px -6px #000
-	-webkit-box-sizing: border-box
-
-	color: #F5F5F5
-
-	> .arrow
-		width: 0
-		height: 0
-		border-left: 5px solid transparent
-		border-right: 5px solid transparent
-
-		border-bottom: 5px solid #222
-
-		position: absolute
-		top: -4px
-		left: 100px
-
-
-
-	opacity: 0
-
-	display: none
-	&.active
-		display: block
-		opacity: 1
-		-webkit-transition: opacity 0.2s
-
-
-	> pre
-		color: #AAA
-		&.example
-			-webkit-border-radius: 3px
-			background: #34321a
-			margin-right: 4px
-			color: #FFF
-			display: inline-block
-
-
-
-
-	p
-		margin-bottom: 8px
-
-
-	> h2
-		font-size: 15px
-		margin-top: 4px
-
-
-
-
-
-pre
-	-webkit-user-select: text
-	cursor: text
 
 
 input[type=checkbox]
@@ -222,7 +95,6 @@ input[type=checkbox]
 		top: 1px
 		border: 0px none
 		box-sizing: content-box
-
 
 	@include colors
 

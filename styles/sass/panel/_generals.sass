@@ -26,6 +26,44 @@ body
 
 	overflow: hidden
 
+	padding-top: 8px
+
 .hidden
 
 	display: none
+
+hr
+	height: 1px
+	margin-bottom: -2px
+	margin-top: 0
+
+	border: none
+	border-bottom: 1px solid
+
+	-webkit-box-sizing: content-box
+
+	@include colors
+
+		@if $dark1 == true
+
+			background-color: #262626
+
+			border-bottom-color: #484848
+
+		@else if $dark2 == true
+
+			background-color: #383838
+
+			border-bottom-color: #717171
+
+		@else if $light1 == true
+
+			background-color: #808080
+
+			border-bottom-color: #cacaca
+
+		@else if $light2 == true
+
+			background-color: #9e9e9e
+
+			border-bottom-color: #f0f0f0

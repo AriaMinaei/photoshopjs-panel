@@ -1,6 +1,6 @@
 ThemeHandler = require './ThemeHandler'
 CSInterface = require './CSInterface'
-Direction = require './widgets/Direction'
+Rotator = require './widgets/Rotator'
 Form = require './widgets/Form'
 
 module.exports = class Panel
@@ -13,6 +13,6 @@ module.exports = class Panel
 
 		@themeHandler = new ThemeHandler @
 
-		Direction.applyTo @rootNode, @
+		Rotator.applyTo @rootNode, @
 
 		Form.applyTo @rootNode, @
