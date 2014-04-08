@@ -7,7 +7,7 @@
 	margin-right: 5px
 
 	vertical-align: bottom
-	line-height: 15px
+	line-height: 16px
 
 	height: row()
 	width: 70px
@@ -35,6 +35,14 @@ input[type=text], textarea
 	padding-left: 4px
 	padding-right: 4px
 
+::-webkit-input-placeholder
+
+	@include colors
+
+		@if $light == true
+
+			color: #666
+
 textarea
 
 	width: 216px
@@ -43,47 +51,7 @@ textarea
 
 	padding-top: 4px
 
-.select
-
-	> a
-
-		position: relative
-		display: block
-
-		-webkit-box-sizing: border-box
-		padding: 0 17px 0 7px
-
-		height: row()+3px !important
-		width: 100%
-
-		overflow: hidden
-
-	> .root
-
-		display: none
-		position: absolute
-		top: 22px
-
-		width: 100%
-		min-width: 100px
-		padding: 1px
-		z-index: 10
-		overflow-y: auto
-		height: auto !important
-		max-height: row()*4 !important
-
-		&.expanded
-
-			display: block
-
-		> li
-
-			padding: 2px 6px 2px 4px
-
-	&+*
-
-		margin-left: -20px
-
 @import "./inputs/button"
+@import "./inputs/rotator"
 @import "./inputs/direction"
 @import "./inputs/orientation"

@@ -15,6 +15,9 @@ $light2: false
 //Default theme
 $theme: ''
 
+$dark: false
+$light: false
+
 @function color_panel_bg()
 
 	@if $dark1 == true
@@ -246,12 +249,13 @@ $theme: ''
 
 @mixin colors
 
-	$dark1: true
+	$dark: true
+	$light: false
 
+	$dark1: true
 	$dark2: false
 
 	$light1: false
-
 	$light2: false
 
 	$theme: dark1
@@ -261,7 +265,6 @@ $theme: ''
 		@content
 
 	$dark1: false
-
 	$dark2: true
 
 	$theme: dark2
@@ -269,6 +272,9 @@ $theme: ''
 	.dark2 &
 
 		@content
+
+	$dark: false
+	$light: true
 
 	$dark2: false
 
@@ -281,7 +287,6 @@ $theme: ''
 		@content
 
 	$light1: false
-
 	$light2: true
 
 	$theme: light2

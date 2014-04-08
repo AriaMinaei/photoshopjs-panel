@@ -1,22 +1,8 @@
 .direction
 
-	@include el
+	.orientation
 
-	width: 24px
-	height: 24px
-	top: 1px
-
-	position: relative
-
-	-webkit-border-radius: 3px
-
-	border: 2px solid #2e2e2e
-
-	cursor: pointer
-
-	> .thingy
-
-		display: none
+	@include rotator
 
 	> .n1
 
@@ -37,18 +23,6 @@
 		@include colors
 
 			background: url("../../images/#{$theme}/direction.png") 0 0 no-repeat
-
-	&:hover
-
-		border-color: rgb(3, 3, 3)
-
-		> .n1
-
-			opacity: 1
-
-	&:active
-
-		background: #222
 
 	&.right > .n1
 

@@ -1,22 +1,6 @@
 .orientation
 
-	@include el
-
-	width: 24px
-	height: 24px
-	top: 1px
-
-	position: relative
-
-	-webkit-border-radius: 3px
-
-	border: 2px solid #2e2e2e
-
-	cursor: pointer
-
-	> .thingy
-
-		display: none
+	@include rotator
 
 	> .n0
 
@@ -36,7 +20,24 @@
 		top: 5px
 		left: 5px
 
-		border: 1px solid #5f5f5f
+		@include colors
+
+			@if $dark1 == true
+
+				border: 1px solid #5f5f5f
+
+			@else if $dark2 == true
+
+				border: 1px solid #777
+
+			@else if $light1 == true
+
+				border: 1px solid #888
+
+			@else
+
+				border: 1px solid #AAA
+
 
 		z-index: 0
 
@@ -44,7 +45,15 @@
 
 		display: block
 
-		background: #bbbbbb
+		@include colors
+
+			@if $dark == true
+
+				background: #bbbbbb
+
+			@else
+
+				background: #222
 
 		position: absolute
 
@@ -83,14 +92,6 @@
 
 		left: 4px
 		top: 14px
-
-	&:hover
-
-		border-color: rgb(3, 3, 3)
-
-	&:active
-
-		background: #222
 
 	&.vertical
 

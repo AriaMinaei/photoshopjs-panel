@@ -1,0 +1,80 @@
+@mixin rotator
+
+	@include el
+
+	position: relative
+
+	-webkit-border-radius: 3px
+
+	cursor: pointer
+
+	> .thingy
+
+		display: none
+
+	@include colors
+
+		@if $dark == true
+
+			border: 2px solid transparent
+
+			width: 24px
+			height: 24px
+			top: 1px
+
+		@else
+
+			border: 1px solid transparent
+
+			width: 22px
+			height: 22px
+			// top: 1px
+			// left: 1px
+
+		@if $dark1 == true
+
+			border-color: #2e2e2e
+
+			&:hover
+
+				border-color: rgb(3, 3, 3)
+
+			&:active
+
+				background: #222
+
+		@else if $dark2 == true
+
+			border-color: lighten(#2e2e2e, 8%)
+
+			&:hover
+
+				border-color: darken(#2e2e2e, 10%)
+
+			&:active
+
+				background:  #2e2e2e
+
+		@else if $light1 == true
+
+			border-color: #888
+
+			&:hover
+
+				border-color: #555
+
+			&:active
+
+				background:  #DDD
+
+		@else if $light2 == true
+
+			border-color: #AAA
+
+			&:hover
+
+				border-color: #777
+
+			&:active
+
+				background:  #EEE
