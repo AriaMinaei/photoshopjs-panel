@@ -7,7 +7,13 @@ module.exports = class Panel
 
 	constructor: (@panelName, @rootNode = document.body) ->
 
-		window.__adobe_cep__.showDevTools()
+		@rootNode.addEventListener 'click', (e) ->
+
+			if e.ctrlKey
+
+				window.__adobe_cep__.showDevTools()
+
+			return
 
 		@csi = new CSInterface
 

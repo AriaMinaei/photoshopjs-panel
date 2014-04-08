@@ -4,11 +4,11 @@
 
 	width: 24px
 	height: 24px
-	top: -1px
+	top: 1px
 
 	position: relative
 
-	-webkit-border-radius: 11px
+	-webkit-border-radius: 3px
 
 	border: 2px solid #2e2e2e
 
@@ -16,6 +16,11 @@
 
 	> .thingy
 
+		display: none
+
+	> .n1
+
+		display: block
 
 		position: absolute
 
@@ -37,7 +42,7 @@
 
 		border-color: rgb(3, 3, 3)
 
-		> .thingy
+		> .n1
 
 			opacity: 1
 
@@ -45,34 +50,34 @@
 
 		background: #222
 
-	&.right > .thingy
+	&.right > .n1
 
 		-webkit-transform: rotateZ(0deg) translateZ(1px)
 
-	&.right:hover > .thingy
+	&.right:hover > .n1
 
 		-webkit-transform: rotateZ(20deg) translateZ(1px)
 
-	&.down > .thingy
+	&.down > .n1
 
 		-webkit-transform: rotateZ(90deg) translateZ(1px)
 
-	&.down:hover > .thingy
+	&.down:hover > .n1
 
 		-webkit-transform: rotateZ(110deg) translateZ(1px)
 
-	&.left > .thingy
+	&.left > .n1
 
 		-webkit-transform: rotateZ(180deg) translateZ(1px)
 
-	&.left:hover > .thingy
+	&.left:hover > .n1
 
 		-webkit-transform: rotateZ(200deg) translateZ(1px)
 
-	&.up > .thingy
+	&.up > .n1
 
 		-webkit-transform: rotateZ(270deg) translateZ(1px)
 
-	&.up:hover > .thingy
+	&.up:hover > .n1
 
 		-webkit-transform: rotateZ(290deg) translateZ(1px)

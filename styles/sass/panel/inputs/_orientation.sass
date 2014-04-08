@@ -4,11 +4,11 @@
 
 	width: 24px
 	height: 24px
-	top: -1px
+	top: 1px
 
 	position: relative
 
-	-webkit-border-radius: 11px
+	-webkit-border-radius: 3px
 
 	border: 2px solid #2e2e2e
 
@@ -16,63 +16,136 @@
 
 	> .thingy
 
+		display: none
+
+	> .n0
+
+		display: block
 
 		position: absolute
 
-		width: 7px
-		height: 12px
+		-webkit-transition: all 0.21s
 
-		top: 4px
-		left: 7px
+		-webkit-box-sizing: border-box
 
 		opacity: 0.67
 
+		width: 10px
+		height: 10px
+
+		top: 5px
+		left: 5px
+
+		border: 1px solid #5f5f5f
+
+		z-index: 0
+
+	.n1, .n2, .n3, .n4
+
+		display: block
+
+		background: #bbbbbb
+
+		position: absolute
+
 		-webkit-transition: all 0.21s
 
-		@include colors
+		opacity: 0
 
-			background: url("../../images/#{$theme}/direction.png") 0 0 no-repeat
+	.n1
+
+		width: 1px
+		height: 12px
+
+		left: 5px
+		top: 4px
+
+	.n2
+
+		width: 1px
+		height: 12px
+
+		left: 14px
+		top: 4px
+
+	.n3
+
+		width: 12px
+		height: 1px
+
+		left: 4px
+		top: 5px
+
+	.n4
+
+		width: 12px
+		height: 1px
+
+		left: 4px
+		top: 14px
 
 	&:hover
 
 		border-color: rgb(3, 3, 3)
 
-		> .thingy
-
-			opacity: 1
-
 	&:active
 
 		background: #222
 
-	&.right > .thingy
+	&.vertical
 
-		-webkit-transform: rotateZ(0deg) translateZ(1px)
+		> .n1, .n2
 
-	&.right:hover > .thingy
+			opacity: 1
 
-		-webkit-transform: rotateZ(20deg) translateZ(1px)
+			-webkit-transform: translateX(0)
 
-	&.down > .thingy
+		> .n3
 
-		-webkit-transform: rotateZ(90deg) translateZ(1px)
+			opacity: 0
 
-	&.down:hover > .thingy
+			-webkit-transform: translateY(10px)
 
-		-webkit-transform: rotateZ(110deg) translateZ(1px)
+		> .n4
 
-	&.left > .thingy
+			opacity: 0
 
-		-webkit-transform: rotateZ(180deg) translateZ(1px)
+			-webkit-transform: translateY(-10px)
 
-	&.left:hover > .thingy
+	&.horizontal
 
-		-webkit-transform: rotateZ(200deg) translateZ(1px)
+		> .n3, .n4
 
-	&.up > .thingy
+			opacity: 1
 
-		-webkit-transform: rotateZ(270deg) translateZ(1px)
+			-webkit-transform: translateY(0)
 
-	&.up:hover > .thingy
+		> .n1
 
-		-webkit-transform: rotateZ(290deg) translateZ(1px)
+			opacity: 0
+
+			-webkit-transform: translateX(10px)
+
+		> .n2
+
+			opacity: 0
+
+			-webkit-transform: translateX(-10px)
+
+	&.both
+
+		> .n1, .n2, .n3, .n4
+
+			opacity: 1
+
+			-webkit-transform: translateX(0px)
+
+	// &.both
+
+	// 	> .n2
+
+	// 		-webkit-transform: translateX(10px)
+
+	// 	> .n3
+
+	// 		-webkit-transform: rotateZ(90deg)

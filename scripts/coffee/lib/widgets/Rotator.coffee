@@ -2,8 +2,6 @@ module.exports = class Rotator
 
 	constructor: (@node) ->
 
-		console.log @node
-
 		@name = @node.getAttribute('data-name')
 
 		options = @node.getAttribute 'data-options'
@@ -20,10 +18,13 @@ module.exports = class Rotator
 
 		@node.classList.add 'panel-input-rotator'
 
-		thingy = document.createElement 'div'
-		thingy.classList.add 'thingy'
+		for i in [0..6]
 
-		@node.appendChild thingy
+			thingy = document.createElement 'div'
+			thingy.classList.add 'thingy'
+			thingy.classList.add 'n' + i
+
+			@node.appendChild thingy
 
 		@input = document.createElement 'input'
 		@input.type = 'hidden'
