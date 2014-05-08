@@ -1,0 +1,69 @@
+.serverNotification
+
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+
+	border-radius: 4px
+
+	&:before
+
+		content: "\0020"
+		display: block
+
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		-webkit-transform: translateZ(-1px)
+
+		@include colors
+
+			background: color_panel_bg()
+
+		opacity: 0.9
+
+	-webkit-transition: all 0.2s
+
+	opacity: 0
+	pointer-events: none
+
+	&.visible
+
+		opacity: 1
+		pointer-events: auto
+
+
+.serverNotification-msg
+
+	position: absolute
+	top: 30px
+	width: 100%
+	display: inline-block
+
+	text-align: center
+	text-decoration: none
+
+	color: #FFF
+	font-size: 11px
+	cursor: pointer
+
+	&:hover
+
+		// color: white
+		text-decoration: underline
+
+	clear: both
+
+
+.serverNotification-discard
+
+	position: absolute
+
+	top: 70px
+	left: -webkit-calc(50% - 60px)
+
+	width: 120px

@@ -13,3 +13,12 @@ div > hr, section > hr
 code
 
 	display: inline-block
+
+body > .container
+
+	-webkit-transition: -webkit-transform 0.3s
+	-webkit-transform: translateZ(1px)
+
+	&.showingServerNotification
+
+		-webkit-transform: translate3d(0, 30px, 1px)

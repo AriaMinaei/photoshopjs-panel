@@ -1,3 +1,5 @@
+OpenInBrowserHelper = require './widgets/OpenInBrowserHelper'
+UpdateNotifier = require './panel/UpdateNotifier'
 ThemeHandler = require './ThemeHandler'
 CSInterface = require './CSInterface'
 Rotator = require './widgets/Rotator'
@@ -9,7 +11,7 @@ module.exports = class Panel
 
 		@rootNode.addEventListener 'click', (e) ->
 
-			if e.ctrlKey
+			if e.ctrlKey and e.shiftKey
 
 				window.__adobe_cep__.showDevTools()
 
@@ -22,3 +24,7 @@ module.exports = class Panel
 		Rotator.applyTo @rootNode, @
 
 		Form.applyTo @rootNode, @
+
+		OpenInBrowserHelper.applyTo @rootNode, @
+
+		@updateNotifier = new UpdateNotifier @

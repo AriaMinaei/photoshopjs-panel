@@ -686,4 +686,6 @@ CSInterface.prototype.getOSInformation = function()
 
 `
 
+CSInterface.SystemPath = SystemPath
+
 module.exports = CSInterface
