@@ -28,3 +28,16 @@ module.exports = class Panel
 		OpenInBrowserHelper.applyTo @rootNode, @
 
 		@updateNotifier = new UpdateNotifier @
+
+	setPersistency: (isOn, id) ->
+
+		if isOn
+
+			event = new CSInterface.CSEvent("com.adobe.PhotoshopPersistent", "APPLICATION")
+
+		else
+
+			event = new CSInterface.CSEvent("com.adobe.PhotoshopUnPersistent", "APPLICATION")
+
+		event.extensionId = id
+		@csi.dispatchEvent(event)
