@@ -34,13 +34,23 @@ module.exports = class Form
 
 		try
 
-			src = "$.global._panels." + method + "(#{data});"
+			if window.CC
 
-			console.log src
+				src = "$.global._panels." + method + "(#{data});"
 
-			@csi.evalScript src, (ret) ->
+				@csi.evalScript src, (ret) ->
 
-				console.log arguments
+					console.log arguments
+
+			else
+
+				file = @panel.options.jsx
+
+				obj = '_panels'
+
+				args = [data]
+
+				_AdobeInvokeFunctionInScriptFile file, obj, method, args
 
 		catch e
 

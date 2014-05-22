@@ -1,5 +1,3 @@
-console = require './console'
-
 module.exports = class ThemeHandler
 
 	constructor: (@panel) ->
@@ -8,11 +6,17 @@ module.exports = class ThemeHandler
 
 		@_changeTheme 'dark1', 'Tahoma', '10'
 
-		@panel.csi.addEventListener @panel.csi.constructor.THEME_COLOR_CHANGED_EVENT, @_themeChangeListener
+		if window.CC
 
-		do @_themeChangeListener
+			@panel.csi.addEventListener @panel.csi.constructor.THEME_COLOR_CHANGED_EVENT, @_themeChangeListenerCC
 
-	_themeChangeListener: =>
+			do @_themeChangeListenerCC
+
+		else
+
+			window.addEventListener 'ThemeChangedEvent', @_themeChangeListenerCS
+
+	_themeChangeListenerCC: =>
 
 		skin = @panel.csi.hostEnvironment.appSkinInfo
 
@@ -33,6 +37,24 @@ module.exports = class ThemeHandler
 		else
 
 			'dark1'
+
+		@_changeTheme theme, skin.baseFontFamily, skin.baseFontSize
+
+	_themeChangeListenerCS: (e) =>
+
+		bgColor = e.appSkinInfo.panelBackgroundColor
+
+		theme = switch bgColor
+
+			when '343434' then 'dark1'
+
+			when 'b8b8b8' then 'light1'
+
+			when 'd6d6d6' then 'light2'
+
+			else 'dark2'
+
+		skin = e.appSkinInfo
 
 		@_changeTheme theme, skin.baseFontFamily, skin.baseFontSize
 

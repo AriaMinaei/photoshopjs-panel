@@ -1,23 +1,28 @@
+window.CC = window.__adobe_cep__?
+require './polyfills'
+
 OpenInBrowserHelper = require './widgets/OpenInBrowserHelper'
 UpdateNotifier = require './panel/UpdateNotifier'
 ThemeHandler = require './ThemeHandler'
-CSInterface = require './CSInterface'
+CSInterface = require './CSInterface' if window.CC
 Rotator = require './widgets/Rotator'
 Form = require './widgets/Form'
 
 module.exports = class Panel
 
-	constructor: (@panelName, @rootNode = document.body) ->
+	constructor: (@panelName, @rootNode = document.body, @options) ->
 
-		@rootNode.addEventListener 'click', (e) ->
+		if window.CC
 
-			if e.ctrlKey and e.shiftKey
+			@rootNode.addEventListener 'click', (e) ->
 
-				window.__adobe_cep__.showDevTools()
+				if e.ctrlKey and e.shiftKey
 
-			return
+					window.__adobe_cep__.showDevTools()
 
-		@csi = new CSInterface
+				return
+
+			@csi = new CSInterface
 
 		@themeHandler = new ThemeHandler @
 
@@ -30,6 +35,8 @@ module.exports = class Panel
 		@updateNotifier = new UpdateNotifier @
 
 	setPersistency: (isOn, id) ->
+
+		return unless window.CC
 
 		if isOn
 

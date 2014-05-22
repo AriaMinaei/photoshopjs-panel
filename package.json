@@ -1,23 +1,23 @@
 {
   "name": "photoshopjs-panel",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.1.0-dev.2",
   "description": "(work in progress)",
   "main": "scripts/js/lib/Panel.js",
   "scripts": {
     "prepublish": "cake build && cd styles && compass compile",
-    "watch": "jitter scripts/coffee scripts/js -b",
-    "watchcss": "cd styles && compass watch"
+    "watch": "jitter scripts/coffee scripts/js -b & compass watch styles",
+    "winwatch": "start/b jitter scripts/coffee scripts/js -b && start/b compass watch styles"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pixana/photoshopjs-panel.git"
+    "url": "https://github.com/AriaMinaei/photoshopjs-panel.git"
   },
   "keywords": [],
   "author": "Aria Minaei",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pixana/photoshopjs-panel"
+    "url": "https://github.com/AriaMinaei/photoshopjs-panel"
   },
   "dependencies": {
   },
