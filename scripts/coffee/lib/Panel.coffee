@@ -14,13 +14,13 @@ module.exports = class Panel
 
 		if window.CC
 
-			@rootNode.addEventListener 'click', (e) ->
+			# @rootNode.addEventListener 'click', (e) ->
 
-				if e.ctrlKey and e.shiftKey
+			# 	if e.ctrlKey and e.shiftKey
 
-					window.__adobe_cep__.showDevTools()
+			# 		window.__adobe_cep__.showDevTools()
 
-				return
+			# 	return
 
 			@csi = new CSInterface
 

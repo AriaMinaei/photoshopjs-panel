@@ -83,6 +83,26 @@ module.exports = class ThemeHandler
 
 		@current = theme
 
+		size = if fontSize <= 10
+
+			'small'
+
+		else if fontSize < 12
+
+			'medium'
+
+		else
+
+			'large'
+
+		for s in ['small', 'medium', 'big']
+
+			html.classList.remove "size-#{s}"
+
+		html.classList.add "size-#{size}"
+
+		return
+
 	isLight: ->
 
 		@current in ['light1', 'light2']
