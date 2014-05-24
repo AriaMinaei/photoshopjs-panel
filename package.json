@@ -1,7 +1,7 @@
 {
   "name": "photoshopjs-panel",
   "private": false,
-  "version": "0.1.0-dev.2",
+  "version": "0.1.0-dev.3",
   "description": "(work in progress)",
   "main": "scripts/js/lib/Panel.js",
   "scripts": {
