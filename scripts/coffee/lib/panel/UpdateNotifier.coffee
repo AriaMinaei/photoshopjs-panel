@@ -1,3 +1,5 @@
+semver = require 'semver/semver.min.js'
+
 module.exports = class UpdateNotifier
 
 	constructor: (@panel) ->
@@ -26,9 +28,14 @@ module.exports = class UpdateNotifier
 
 		json = JSON.parse response
 
-		if json.updateAvailable is 'yes'
+		return unless json.channels? and json.channels[@channel]?
 
-			do @_considerShowingUpdateNotification
+		latestVersionOnChannel = json.channels[@channel]
+
+		# If there is a new version available
+		if semver.gt latestVersionOnChannel, @version
+
+				do @_considerShowingUpdateNotification
 
 	_considerShowingUpdateNotification: ->
 

@@ -12,11 +12,21 @@
 
 		display: none
 
+	.size-large &
+
+		width: 26px !important
+		height: 26px !important
+
+	.size-medium &
+
+		width: 26px !important
+		height: 26px !important
+
 	@include colors
 
 		@if $dark == true
 
-			border: 2px solid transparent
+			border: 1px solid transparent
 
 			width: 24px
 			height: 24px
@@ -26,12 +36,12 @@
 
 			border: 1px solid transparent
 
-			width: 22px
-			height: 22px
+			width: 24px
+			height: 24px
 
 		@if $dark1 == true
 
-			border-color: #2e2e2e
+			border-color: darken(#2e2e2e, 8%)
 
 			&:hover
 
@@ -41,17 +51,21 @@
 
 				background: #222
 
+			background: #313131
+
 		@else if $dark2 == true
 
 			border-color: lighten(#2e2e2e, 8%)
 
 			&:hover
 
-				border-color: darken(#2e2e2e, 10%)
+				border-color: darken(#2e2e2e, 16%)
 
 			&:active
 
 				background:  #2e2e2e
+
+			background: #4d4d4d
 
 		@else if $light1 == true
 
@@ -63,7 +77,9 @@
 
 			&:active
 
-				background:  #DDD
+				background:  #EEE
+
+			background: #CECECE
 
 		@else if $light2 == true
 
@@ -71,8 +87,13 @@
 
 			&:hover
 
-				border-color: #777
+				border-color: #757575
 
 			&:active
 
-				background:  #EEE
+				background:  #F2F2F2
+
+				border-color: #333
+
+			background: #DEDEDE
+

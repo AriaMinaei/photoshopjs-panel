@@ -1,3 +1,9 @@
+$largeOffsetY: 1px
+$largeOffsetX: 1px
+
+$mediumOffsetY: 1px
+$mediumOffsetX: 1px
+
 .orientation
 
 	@include rotator
@@ -17,8 +23,18 @@
 		width: 10px
 		height: 10px
 
-		top: 5px
-		left: 5px
+		top: 6px
+		left: 6px
+
+		.size-large &
+
+			top: 6px + $largeOffsetY
+			left: 6px + $largeOffsetX
+
+		.size-medium &
+
+			top: 6px + $mediumOffsetY
+			left: 6px + $mediumOffsetX
 
 		@include colors
 
@@ -66,32 +82,72 @@
 		width: 1px
 		height: 12px
 
-		left: 5px
-		top: 4px
+		left: 6px
+		top: 5px
+
+		.size-large &
+
+			left: 6px + $largeOffsetX
+			top: 5px + $largeOffsetY
+
+		.size-medium &
+
+			left: 6px + $mediumOffsetX
+			top: 5px + $mediumOffsetY
 
 	.n2
 
 		width: 1px
 		height: 12px
 
-		left: 14px
-		top: 4px
+		left: 15px
+		top: 5px
+
+		.size-large &
+
+			left: 15px + $largeOffsetX
+			top: 5px + $largeOffsetY
+
+		.size-medium &
+
+			left: 15px + $mediumOffsetX
+			top: 5px + $mediumOffsetY
 
 	.n3
 
 		width: 12px
 		height: 1px
 
-		left: 4px
-		top: 5px
+		left: 5px
+		top: 6px
+
+		.size-large &
+
+			left: 5px + $largeOffsetX
+			top: 6px + $largeOffsetY
+
+		.size-medium &
+
+			left: 5px + $mediumOffsetX
+			top: 6px + $mediumOffsetY
 
 	.n4
 
 		width: 12px
 		height: 1px
 
-		left: 4px
-		top: 14px
+		left: 5px
+		top: 15px
+
+		.size-large &
+
+			left: 5px + $largeOffsetX
+			top: 15px + $largeOffsetY
+
+		.size-medium &
+
+			left: 5px + $mediumOffsetX
+			top: 15px + $mediumOffsetY
 
 	&.vertical
 

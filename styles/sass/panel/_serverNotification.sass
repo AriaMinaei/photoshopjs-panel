@@ -8,6 +8,8 @@
 
 	border-radius: 4px
 
+	z-index: 1000
+
 	&:before
 
 		content: "\0020"
@@ -26,6 +28,8 @@
 
 		opacity: 0.9
 
+		pointer-events: none
+
 	-webkit-transform: scale(1.2) translateZ(1px)
 	-webkit-transition: all 0.2s
 
@@ -35,8 +39,8 @@
 	&.visible
 
 		opacity: 1
-		pointer-events: auto
-		-webkit-transform: scale(1) translateZ(1px)
+		pointer-events: auto !important
+		-webkit-transform: scale(1)
 
 .serverNotification-msg
 

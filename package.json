@@ -20,6 +20,7 @@
     "url": "https://github.com/AriaMinaei/photoshopjs-panel"
   },
   "dependencies": {
+    "semver": "^2.3.0"
   },
   "devDependencies": {
     "coffee-script": "~1.7.1",
