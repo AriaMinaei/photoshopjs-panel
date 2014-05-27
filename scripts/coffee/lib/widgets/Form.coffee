@@ -54,7 +54,7 @@ module.exports = class Form
 
 		catch e
 
-			console.log e
+			console.error e
 
 		return
 

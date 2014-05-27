@@ -1,4 +1,4 @@
-semver = require 'semver/semver.min.js'
+semver = require 'semver/semver.js'
 
 module.exports = class UpdateNotifier
 
