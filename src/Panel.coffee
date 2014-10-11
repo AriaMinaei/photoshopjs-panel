@@ -14,14 +14,6 @@ module.exports = class Panel
 
 		if window.CC
 
-			# @rootNode.addEventListener 'click', (e) ->
-
-			# 	if e.ctrlKey and e.shiftKey
-
-			# 		window.__adobe_cep__.showDevTools()
-
-			# 	return
-
 			@csi = new CSInterface
 
 		@themeHandler = new ThemeHandler @

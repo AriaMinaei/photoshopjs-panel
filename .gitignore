@@ -1,11 +1,10 @@
 *.bat
 .htaccess
 
-scripts/js/**
+lib/
 xeno/**
 node_modules
 pg
-scripts/dist
 
 -p
 

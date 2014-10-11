@@ -3,11 +3,11 @@
   "private": false,
   "version": "0.1.0-dev.3",
   "description": "(work in progress)",
-  "main": "scripts/js/lib/Panel.js",
+  "main": "lib/Panel.js",
   "scripts": {
-    "prepublish": "cake build && cd styles && compass compile",
-    "watch": "jitter scripts/coffee scripts/js -b & compass watch styles",
-    "winwatch": "start/b jitter scripts/coffee scripts/js -b && start/b compass watch styles"
+    "prepublish": "coffee --bare --compile --output ./lib ./src && cd styles && compass compile",
+    "watch": "jitter src lib -b & compass watch styles",
+    "winwatch": "start/b jitter src lib -b && start/b compass watch styles"
   },
   "repository": {
     "type": "git",

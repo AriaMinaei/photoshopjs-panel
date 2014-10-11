@@ -5,6 +5,8 @@ xeno/**
 node_modules
 pg
 pg*.*
+src
+
 
 -p
 
