@@ -18,9 +18,7 @@ module.exports = class Form
 
 			data[input.name] = input.value
 
-		json = JSON.stringify data
-
-		@_wire json
+		@_wire data
 
 	_wire: (data) ->
 
@@ -32,31 +30,7 @@ module.exports = class Form
 
 		method = matches[1]
 
-		try
-
-			if window.CC
-
-				src = "$.global._panels." + method + "(#{data});"
-
-				@csi.evalScript src, (ret) ->
-
-					console.log arguments
-
-			else
-
-				file = @panel.options.jsx
-
-				obj = '_panels'
-
-				args = [data]
-
-				_AdobeInvokeFunctionInScriptFile file, obj, method, args
-
-		catch e
-
-			console.error e
-
-		return
+		@panel.invoke method, data
 
 	@applyTo: (rootNode, panel) ->
 

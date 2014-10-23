@@ -40,3 +40,33 @@ module.exports = class Panel
 
 		event.extensionId = id
 		@csi.dispatchEvent(event)
+
+	invoke: (method, data, stringify = yes) ->
+
+		data = JSON.stringify data if stringify
+
+		try
+
+			if window.CC
+
+				src = "$.global._panels." + method + "(#{data});"
+
+				@csi.evalScript src, (ret) ->
+
+					console.log arguments
+
+			else
+
+				file = @options.jsx
+
+				obj = '_panels'
+
+				args = [data]
+
+				_AdobeInvokeFunctionInScriptFile file, obj, method, args
+
+		catch e
+
+			console.error e
+
+		return
